@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename ='home.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Courgette&family=Fredoka+One&family=Playball&family=Shrikhand&family=Source+Serif+Pro:ital@1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Courgette&family=Fredoka+One&family=Playball&family=Shrikhand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Courgette&family=Fredoka+One&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>Restaurant Cuisine Requirement Prediction</h2>
+    <img src="{{url_for('static',filename='bbb.png')}}" alt="">
+    <div class="Content">
+    <form action="{{url_for('predict')}}" method="post">
+        <h1>Want to know more demanded food?</h1>
+        <div class="row">
+        <div class="col">
+            <h4>People Voted</h4>
+            <input type="text" name="vote"><br>
+            <h4>Cost of the Dish in Rs.</h4>
+            <input type="text" name="cost">
+            <h4>What type of Food?</h4>
+            <select name="type_food">
+                <option value="0">Buffet</option>
+                <option value="1">Cafes</option>
+                <option value="2">Delivery</option>
+                <option value="3">Desserts</option>
+                <option value="4">Dine-out</option>
+                <option value="5">Drinks & nightlife</option>
+                <option value="6">Pubs and bars</option>
+                <option value="7">Cafes</option>
+            </select>
+            <h4>Dish Rating(UPTO 5)</h4>
+            <input type="text" name = 'rateing'> <br>
+        </div>
+        <div class="col">
+            <h4>Table Booking?</h4>
+            <select name="table_booking">
+                <option value="0">Yes</option>
+                <option value="1">no</option>
+            </select> <br>
+            <h4>Which City?</h4>
+            <select name="city">
+                <option value='0'>Banashankari</option>
+                <option value="1">Bannerghatta Road</option>
+                <option value="2">Basavanagudi</option>   
+                <option value="3">Bellandur</option> 
+                <option value="4">Brigade Road</option> 
+                <option value="5">Brookefield</option> 
+                <option value="6">BTM</option> 
+                <option value="7">Church Street</option> 
+                <option value="8">Electronic City</option> 
+                <option value="9">Frazer Town</option> 
+                <option value="10">HSR</option> 
+                <option value="11">Indiranagar</option>
+                <option value="12">Jayanagar</option> 
+                <option value="13">JP Nagar</option>
+                <option value="14">Kalyan Nagar</option>
+                <option value="15">Kammanahalli</option>
+                <option value="16">Koramangala 4th Block</option>
+                <option value="17">Koramangala 5th Block</option>
+                <option value="18">Koramangala 6th Block</option>
+                <option value="19">Koramangala 7th Block</option>
+                <option value="20">Lavelle Road</option>
+                <option value="21">Malleshwaram</option>
+                <option value="22">Marathahalli</option>
+                <option value="23">MG Road</option>
+                <option value="24">New BEL Road</option>
+                <option value="25">Old Airport Road</option>
+                <option value="26">Rajajinagar</option>
+                <option value="27">Residency Road</option>
+                <option value="28">Sarjapur Road</option>
+                <option value="29">Whitefield</option>
+            </select> <br>
+            <h4>online order</h4>
+            <select name="O_order">
+                <option value="0">Yes</option>
+                <option value="1">No</option>
+            </select> 
+            <h4>Date</h4><input type="datetime-local" name="date" id="input-box-1" required="required"> 
+            <br><br><br>
+            <button>submit</button>
+        </div>
+    </div>
+    <div class="output">{{prediction_text}}</div>
+    </form>
+    </div>
+</body>
+</html>
